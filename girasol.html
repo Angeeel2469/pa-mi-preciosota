@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Mensaje Especial</title>
+    <style>
+        /* 1. IMPORTACIÓN DE FUENTE: 'Great Vibes' desde Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        /* ESTILOS GLOBALES Y RESET BÁSICO */
+        body, html {
+            height: 100%; /* Ocupa el 100% de la altura de la ventana */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Evita barras de desplazamiento si el contenido es más grande */
+            font-family: sans-serif; /* Fuente de respaldo por si 'Great Vibes' no carga */
+        }
+
+        /* CONTENEDOR PRINCIPAL - EL FONDO DE GIRASOLES */
+        .sunflower-container {
+            /* **************************************************
+               * AQUÍ DEBES PEGAR LA URL DE TU IMAGEN DE FONDO  *
+               * O EL NOMBRE DE ARCHIVO SI ESTÁ EN LA MISMA CARPETA *
+               ************************************************** */
+            background-image: url('jiras.PNG'); 
+            
+            background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen de fondo */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll (aunque aquí no hay scroll) */
+            
+            height: 100%; /* Ocupa el 100% de la altura disponible */
+            width: 100%; /* Ocupa el 100% del ancho disponible */
+            
+            display: flex; /* Utiliza Flexbox para centrar el texto */
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: center; /* Centra el contenido verticalmente */
+
+            position: relative; /* Necesario para la capa de superposición */
+            box-sizing: border-box; /* Incluye padding y border en el ancho/alto total */
+            padding: 20px; /* Un pequeño padding general para que el texto no se pegue a los bordes */
+        }
+
+        /* CAPA OSCURA PARA MEJORAR LA LEGIBILIDAD DEL TEXTO */
+        .sunflower-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Capa oscura semitransparente (0.5 = 50% opacidad) */
+            z-index: 0; /* Asegura que esté debajo del texto */
+        }
+
+        /* ESTILO Y ANIMACIONES DEL TEXTO DEL MENSAJE */
+        .main-text {
+            font-family: 'Great Vibes', cursive; /* Aplica la fuente importada */
+            color: #ffffff; /* Color de texto blanco */
+            
+            /* Sombra de texto para un efecto de brillo */
+            text-shadow: 
+                0 0 10px #ffd700, /* Amarillo dorado */
+                0 0 20px #ffae00, /* Naranja ámbar */
+                0 0 30px #ff8c00; /* Naranja oscuro */
+            
+            position: relative; 
+            z-index: 1; /* Asegura que el texto esté encima de la capa oscura */
+
+            text-align: center; /* Centra el texto dentro de su contenedor */
+            
+            /* --- AJUSTES CLAVE PARA RESPONSIVIDAD DEL TEXTO --- */
+            max-width: 90%; /* El texto no ocupará más del 90% del ancho disponible */
+            margin: 0 auto; /* Centra el bloque de texto si es más pequeño que el max-width */
+            line-height: 1.4; /* Espaciado entre líneas para mejor lectura */
+            
+            /* Animaciones */
+            animation: fadeIn 3s ease-out, glow 2.5s ease-in-out infinite alternate;
+        }
+
+        /* ANIMACIÓN DE APARICIÓN (FADE IN) */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8); /* Empieza un poco más pequeño */
+            }
+            to {
+                opacity: 1;
+                transform: scale(1); /* Termina a su tamaño normal */
+            }
+        }
+
+        /* ANIMACIÓN DE BRILLO (GLOW) */
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ffd700,
+                    0 0 20px #ffae00,
+                    0 0 30px #ff8c00;
+            }
+            to {
+                text-shadow: 
+                    0 0 20px #fff200, /* Brillo más intenso y amarillo */
+                    0 0 30px #ffc500,
+                    0 0 40px #ffae00;
+            }
+        }
+
+        /* MEDIA QUERIES PARA ADAPTAR EL TAMAÑO DE FUENTE A DIFERENTES PANTALLAS */
+        /* Para pantallas grandes (desktop) */
+        @media (min-width: 1200px) {
+            .main-text {
+                font-size: 4rem; /* Tamaño de fuente para monitores grandes */
+            }
+        }
+
+        /* Para pantallas medianas (laptops, tabletas en horizontal) */
+        @media (max-width: 1199px) and (min-width: 768px) {
+            .main-text {
+                font-size: 3rem; /* Tamaño de fuente para pantallas medianas */
+            }
+        }
+
+        /* Para pantallas pequeñas (tabletas en vertical, la mayoría de los móviles) */
+        @media (max-width: 767px) {
+            .main-text {
+                font-size: 2rem; /* Tamaño de fuente para pantallas pequeñas */
+                padding: 0 15px; /* Ajusta el padding horizontal para móviles */
+            }
+        }
+
+        /* Para pantallas muy pequeñas (móviles antiguos o muy compactos) */
+        @media (max-width: 480px) {
+            .main-text {
+                font-size: 1.5rem; /* Tamaño de fuente para pantallas muy pequeñas */
+                padding: 0 10px; /* Ajusta el padding horizontal */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sunflower-container">
+        <p class="main-text">
+            Mi amorcito corazón de melón,<br>
+            eres una mujer increíble y me da mucho gusto<br>
+            poder compartir esta vida contigo.<br>
+            Quiero que cumplamos todas nuestras metas<br>
+            y, sobre todo, que siempre, siempre estemos juntos.
+        </p>
+    </div>
+
+</body>
+</html>
